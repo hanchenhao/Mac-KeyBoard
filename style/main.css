@@ -1,0 +1,129 @@
+#content {
+    /* background-color: aliceblue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+    text-align: center;
+}
+
+body {
+    background: url("../images/bg.png")
+}
+
+.clearfix {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.nav {
+    margin: 40px 0px;
+    line-height: 80px;
+    font-size: 40px;
+    color: slategray;
+}
+
+#content #keyboard {
+    background-color: aliceblue;
+    display: inline-block;
+    width: 1240px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-radius: 16px;
+    font-family: "Arial Rounded", Helvetica, Arial, sans-serif;
+}
+
+#content #keyboard li {
+    float: left;
+    width: 47px;
+    height: 69px;
+    border-radius: 8px;
+    padding: 4px 12px 0px;
+    line-height: 90px;
+    position: relative;
+    margin: 0 12px 12px 0;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+li:active {
+    top: 2px !important;
+    box-shadow: 2px 0 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+#content #keyboard li span {
+    display: block;
+    height: 14px;
+    line-height: 42px;
+    position: absolute;
+    top: 0;
+    margin-left: 17px;
+}
+
+#content #keyboard li.delete {
+    width: 96px;
+}
+
+#content #keyboard li.tab {
+    width: 96px;
+}
+
+#content #keyboard li.caps {
+    width: 114px;
+}
+
+#content #keyboard li.shift {
+    width: 154px;
+}
+
+#content #keyboard li.return {
+    width: 112px;
+}
+
+#content #keyboard li.command {
+    width: 71px;
+}
+
+#content #keyboard li.space {
+    width: 379px;
+    color: transparent;
+}
+
+#content #keyboard li.right {
+    text-align: right;
+}
+
+#content #keyboard li.left {
+    text-align: left;
+}
+
+#content #keyboard li.special {
+    font-size: 16px;
+}
+
+#content #keyboard li.arrow {
+    height: 32px;
+    line-height: 32px;
+    margin: 0 12px 3px 0;
+    font-size: 20px;
+}
+
+#content #keyboard li.arrow.up {
+    margin: 0 83px 3px;
+    border-radius: 8px 8px 0 0;
+}
+
+#content #keyboard li.arrow.down {
+    border-radius: 0 0 8px 8px;
+}
