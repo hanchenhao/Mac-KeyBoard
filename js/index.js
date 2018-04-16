@@ -8,8 +8,8 @@ var a = "A,S,D,F,G,H,J,K,L"
 var ar = ";,'"
 var z = "Z,X,C,V,B,N,M"
 
-
 init()
+
 
 function createSpan(ele, numberSign, s) {
     let sign = numberSign.split(s || ",")
@@ -28,11 +28,37 @@ function createSpan(ele, numberSign, s) {
 function createList(ele, sign) {
     ele.split(sign || ",").forEach(function(v) {
         let number = document.createElement("li")
+        number.onclick = function(e) {
+            let adress =  prompt("请输入网站地址")
+            if(adress) {
+                var json = JSON.parse(localStorage.getItem('adress') || 'null')  || {}
+                json[this.textContent] = adress
+                localStorage.setItem("adress",JSON.stringify(json))
+                if (getBaseURL(this.textContent)) {
+                    img.src = getBaseURL(this.textContent) + '/favicon.ico'
+                    img.style.width = "20px"
+                    img.style.height = "20px"
+                }
+            }
+        }
         number.textContent = v
+        let img = document.createElement("img")
+        if (getBaseURL(v)) {
+            console.log(getBaseURL(v) + '/favicon.ico')
+            img.src = getBaseURL(v) + '/favicon.ico'
+            img.onload = function(e) {
+                this.style.width = "20px"
+                this.style.height = "20px"
+            }
+            img.onerror = function(e) {
+                this.style.width = 0
+                this.style.height = 0
+            }
+        }
+        number.appendChild(img)
         keyboard.appendChild(number)
     })
 }
-
 
 function createSpecial(content, className, target) {
     target = target || keyboard
@@ -66,15 +92,28 @@ function init() {
     createSpecial("option", "right special")
 
     let arrow = document.createElement("ol")
-        // arrow.className = "arrow-content"
     createSpecial("↑", "arrow up special")
     createSpecial("←", "arrow special")
     createSpecial("↓", "arrow down special")
     createSpecial("→", "arrow special")
-        // keyboard.appendChild(arrow)
+
+}
+
+function getBaseURL(key){
+    let json =  JSON.parse(localStorage.getItem('adress') || 'null') 
+    if (json) {
+        let url = json[key]
+        return url ? 'http://'+url : undefined
+    }
+    return undefined
 
 }
 
 document.onkeypress = function(e) {
-    console.log(e.key)
+    if (getBaseURL(e.key.toUpperCase())) {
+        window.open(getBaseURL(e.key.toUpperCase()), '_blank')
+
+    }
+   
+
 }
