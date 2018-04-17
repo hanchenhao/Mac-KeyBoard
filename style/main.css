@@ -73,7 +73,6 @@ li:active {
     top: 0;
     width: 0;
     height: 0;
-    background-color: #eeeeee;
 }
 
 #content #keyboard li.delete {
