@@ -36,8 +36,8 @@ function createList(ele, sign) {
                 localStorage.setItem("adress",JSON.stringify(json))
                 if (getBaseURL(this.textContent)) {
                     img.src = getBaseURL(this.textContent) + '/favicon.ico'
-                    img.style.width = "20px"
-                    img.style.height = "20px"
+                    img.style.width = "16px"
+                    img.style.height = "16px"
                 }
             }
         }
@@ -47,8 +47,8 @@ function createList(ele, sign) {
             console.log(getBaseURL(v) + '/favicon.ico')
             img.src = getBaseURL(v) + '/favicon.ico'
             img.onload = function(e) {
-                this.style.width = "20px"
-                this.style.height = "20px"
+                this.style.width = "16px"
+                this.style.height = "16px"
             }
             img.onerror = function(e) {
                 this.style.width = 0
