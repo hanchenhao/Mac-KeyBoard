@@ -103,7 +103,7 @@ function getBaseURL(key){
     let json =  JSON.parse(localStorage.getItem('adress') || 'null') 
     if (json) {
         let url = json[key]
-        return url ? 'http://'+url : undefined
+        return url ? '//'+url : undefined
     }
     return undefined
 
