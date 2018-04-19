@@ -46,7 +46,10 @@ function createList(ele, sign) {
         number.textContent = v
         let img = document.createElement("img")
         if (getBaseURL(v)) {
-            img.src = getBaseURL(v) + '/favicon.ico'
+            var iconURL = getBaseURL(this.textContent)
+            iconURL =  iconURL.search("http") != -1 ? iconURL : "http:" + iconURL
+
+            img.src = iconURL + '/favicon.ico'
             img.onload = function(e) {
                 this.style.width = "16px"
                 this.style.height = "16px"
