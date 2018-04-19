@@ -44,7 +44,6 @@ function createList(ele, sign) {
         number.textContent = v
         let img = document.createElement("img")
         if (getBaseURL(v)) {
-            console.log(getBaseURL(v) + '/favicon.ico')
             img.src = getBaseURL(v) + '/favicon.ico'
             img.onload = function(e) {
                 this.style.width = "16px"
@@ -103,7 +102,7 @@ function getBaseURL(key){
     let json =  JSON.parse(localStorage.getItem('adress') || 'null') 
     if (json) {
         let url = json[key]
-        return url ? '//'+url : undefined
+        return url ? 'http://'+url : undefined
     }
     return undefined
 
