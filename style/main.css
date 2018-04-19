@@ -73,7 +73,7 @@ li:active {
     top: 0;
     width: 0;
     height: 0;
-    border-radius: 8px;
+    border-radius: 6px;
 }
 
 #content #keyboard li.delete {

@@ -35,7 +35,9 @@ function createList(ele, sign) {
                 json[this.textContent] = adress
                 localStorage.setItem("adress",JSON.stringify(json))
                 if (getBaseURL(this.textContent)) {
-                    img.src = getBaseURL(this.textContent) + '/favicon.ico'
+                    var iconURL = getBaseURL(this.textContent)
+                    iconURL =  iconURL.search("http") != -1 ? iconURL : "http:" + iconURL
+                    img.src = iconURL + '/favicon.ico'
                     img.style.width = "16px"
                     img.style.height = "16px"
                 }
@@ -102,7 +104,7 @@ function getBaseURL(key){
     let json =  JSON.parse(localStorage.getItem('adress') || 'null') 
     if (json) {
         let url = json[key]
-        return url ? 'http://'+url : undefined
+        return url ? '//'+url : undefined
     }
     return undefined
 
